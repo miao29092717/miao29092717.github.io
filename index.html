@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>猜猜我是谁？</h1>
+    <script>
+        /*
+        * 这个是一个计数器函数
+        * */
+        function f() {
+            var val = 0;
+
+            function inF() {
+                return ++val;
+            }
+
+            return inF;
+        }
+
+        var inF = f();
+        var inF2 = f();
+        console.log(inF());  // 1
+        console.log(inF());  // 2
+
+        console.log(inF2());  // 1
+        console.log(inF2());  // 2
+
+        // 学习的目的
+        /*
+        * 1、面试
+        * 2、防止不经意间滥用到了闭包，造成内存无法释放，最终内存溢出。
+        * */
+
+        // 用完之后，把inF释放掉
+        inF = null;
+    </script>
+</body>
+</html>
